@@ -7,3 +7,8 @@ config.env
 # Safety net: never commit anything that looks like a secret cache
 secrets/
 *.secret
+
+# Session-checkpoint handover artefacts — these land in $PWD and are
+# per-session, not part of the skill source tree.
+HANDOVER-*.md
+
