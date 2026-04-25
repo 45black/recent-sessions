@@ -41,7 +41,7 @@ command -v curl >/dev/null 2>&1 || { echo "healthcheck: curl not available" >&2;
 BETA="${ANTHROPIC_BETA_HEADER:-managed-agents-2026-04-01}"
 BASE="${ANTHROPIC_API_BASE:-https://api.anthropic.com}"
 
-body_file=$(mktemp)
+body_file=$(mktemp /tmp/recent-sessions-healthcheck.XXXXXX)
 trap 'rm -f "$body_file"' EXIT
 
 http_code=$(curl -sS -o "$body_file" -w '%{http_code}' \
