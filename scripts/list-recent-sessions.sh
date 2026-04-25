@@ -100,7 +100,7 @@ fi
 
 NOW_EPOCH=$(date +%s)
 CUTOFF_EPOCH=$(( NOW_EPOCH - HOURS * 3600 ))
-TMP=$(mktemp)
+TMP=$(mktemp /tmp/recent-sessions.XXXXXX)
 trap 'rm -f "$TMP"' EXIT
 export CUTOFF_EPOCH TMP
 
